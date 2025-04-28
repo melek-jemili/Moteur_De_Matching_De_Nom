@@ -4,6 +4,8 @@ import java.util.List;
 
 public interface Preprocesseur {
 	
-	public List<String> prétraiter(List<String> list);
+	public List<Preprocesseur> prétraiter(List<String> list);
+	
+	public boolean estPrétraiter();
 
 }

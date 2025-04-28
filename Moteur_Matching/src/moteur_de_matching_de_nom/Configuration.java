@@ -20,25 +20,18 @@ public class Configuration {
 		return p;
 	}
 
-	public void setP(Preprocesseur p) {
-		this.p = p;
-	}
+
 
 	public Indexeur getInd() {
 		return ind;
 	}
 
-	public void setInd(Indexeur ind) {
-		this.ind = ind;
-	}
 
 	public Comparateur_chaine getComp_ch() {
 		return comp_ch;
 	}
 
-	public void setComp_ch(Comparateur_chaine comp_ch) {
-		this.comp_ch = comp_ch;
-	}
+
 
 	public double getSeuil() {
 		return seuil;

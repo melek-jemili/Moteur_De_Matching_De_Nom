@@ -2,11 +2,11 @@ package moteur_de_matching_de_nom;
 
 public class Configuration {
 	
-	Preprocesseur p;
-	Indexeur ind;
-	Comparateur_chaine comp_ch;
-	double seuil;
-	int maxResult;
+	private Preprocesseur p;
+	private Indexeur ind;
+	private Comparateur_chaine comp_ch;
+	private double seuil;
+	private int maxResult;
 	
 	public Configuration(Preprocesseur p, Indexeur ind, Comparateur_chaine comp_ch, double seuil , int maxResult) {
 		this.comp_ch=comp_ch;

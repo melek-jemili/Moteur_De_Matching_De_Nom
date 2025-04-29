@@ -13,7 +13,7 @@ public class GenerateurDeCondidat {
 		
 	}
 	
-	public List <Preprocesseur> generUnCondidat(List <Preprocesseur> list1 ,String nom ){
+	public List <Preprocesseur> generUnCondidat(List <String> list1 ,String nom ){
 		List <Preprocesseur> listDeCandidat = new ArrayList<Preprocesseur>();
 		List <String> listDeNom = new ArrayList<String>();
 		listDeNom.add(nom);

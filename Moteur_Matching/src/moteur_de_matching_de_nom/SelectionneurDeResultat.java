@@ -2,15 +2,10 @@ package moteur_de_matching_de_nom;
 import java.util.List;
 
 
-public class SelectionneurDeResultat {
-		private Comparateur_nom compNom;
+public interface SelectionneurDeResultat {
 	 
 	
-	List<Preprocesseur> selectionner(List<Preprocesseur>L){
-	
-	
-		
-	}
+	List<CoupleDeNomAvecScore> selectionner(List<CoupleDeNomAvecScore>L);
 	
 
 }

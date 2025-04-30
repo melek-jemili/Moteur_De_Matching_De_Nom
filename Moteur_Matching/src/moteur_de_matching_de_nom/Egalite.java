@@ -1,6 +1,6 @@
 package moteur_de_matching_de_nom;
 
-public class Egalite implements Comparateur_chaine{
+public class Egalite implements ComparateurChaine{
 
 	public double comparer(String nom1, String nom2) {
 		

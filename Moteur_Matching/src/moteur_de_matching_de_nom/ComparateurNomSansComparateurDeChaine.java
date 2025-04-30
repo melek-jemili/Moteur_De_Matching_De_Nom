@@ -1,6 +1,6 @@
 package moteur_de_matching_de_nom;
 
-public class ComparateurNomSansComparateurDeChaine extends Comparateur_nom{
+public class ComparateurNomSansComparateurDeChaine implements ComparateurNom{
 
 	public double comparerNom(String nom1, String nom2) {
 		

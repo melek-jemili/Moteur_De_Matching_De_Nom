@@ -1,6 +1,6 @@
 package moteur_de_matching_de_nom;
 
-public class JaroWinkler implements Comparateur_chaine{
+public class JaroWinkler implements ComparateurChaine{
 	
 	public double comparer(String nom1 , String nom2) {
 		int matchDistance = Math.max(nom1.length(), nom2.length()) / 2 - 1;

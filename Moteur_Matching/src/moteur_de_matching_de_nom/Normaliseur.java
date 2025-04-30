@@ -7,8 +7,5 @@ public class Normaliseur implements Preprocesseur{
 			
 		}
 		
-		public boolean estPrétraiter() {
-			return true;
-		}
 
 }

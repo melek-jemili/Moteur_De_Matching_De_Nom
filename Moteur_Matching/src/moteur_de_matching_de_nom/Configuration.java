@@ -4,11 +4,11 @@ public class Configuration {
 	
 	private Preprocesseur p;
 	private Indexeur ind;
-	private Comparateur_chaine comp_ch;
+	private ComparateurChaine comp_ch;
 	private double seuil;
 	private int maxResult;
 	
-	public Configuration(Preprocesseur p, Indexeur ind, Comparateur_chaine comp_ch, double seuil , int maxResult) {
+	public Configuration(Preprocesseur p, Indexeur ind, ComparateurChaine comp_ch, double seuil , int maxResult) {
 		this.comp_ch=comp_ch;
 		this.ind=ind;
 		this.maxResult=maxResult;
@@ -27,7 +27,7 @@ public class Configuration {
 	}
 
 
-	public Comparateur_chaine getComp_ch() {
+	public ComparateurChaine getComp_ch() {
 		return comp_ch;
 	}
 

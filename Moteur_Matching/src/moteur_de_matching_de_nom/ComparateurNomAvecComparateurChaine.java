@@ -1,8 +1,8 @@
 package moteur_de_matching_de_nom;
 
-public class  ComparateurNomAvecComparateurChaine extends Comparateur_nom {
+public class  ComparateurNomAvecComparateurChaine implements  ComparateurNom {
 	
-	Comparateur_chaine ch;
+	ComparateurChaine ch;
 	
 	public double comparerNom(String nom1, String nom2) {
 		double score = 0;

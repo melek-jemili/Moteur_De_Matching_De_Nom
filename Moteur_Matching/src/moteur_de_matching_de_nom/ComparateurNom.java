@@ -1,6 +1,6 @@
 package moteur_de_matching_de_nom;
 
-public abstract class Comparateur_nom {
+public interface  ComparateurNom {
 	
 	
 	

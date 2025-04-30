@@ -1,6 +1,6 @@
 package moteur_de_matching_de_nom;
 
-public class Levenshtein implements Comparateur_chaine {
+public class Levenshtein implements ComparateurChaine {
 	
 	public double comparer(String nom1 , String nom2) {
 		

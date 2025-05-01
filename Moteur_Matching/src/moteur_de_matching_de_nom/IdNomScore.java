@@ -1,10 +1,32 @@
 package moteur_de_matching_de_nom;
 
-public record IdNomScore() {
+public class IdNomScore {
 	
-	public static String id;
-	public static double score;
-	public static String nom;
+	public String id;
+	public double score;
+	public Nom nom;
+	
+
+	
+	public IdNomScore(String id, Nom nom, double score) {
+		this.id=id;
+		this.nom=nom;
+		this.score=score;
+	}
+	public String toString() {
+		return "IdNomScore [toString()=" + super.toString() + "]";
+	}
+	public String getId() {
+		return this.id;
+	}
+	public double getScore() {
+		return this.score;
+	}
+	public Nom getNom() {
+		return this.nom;
+	}
+	
+	
 	
 	
 

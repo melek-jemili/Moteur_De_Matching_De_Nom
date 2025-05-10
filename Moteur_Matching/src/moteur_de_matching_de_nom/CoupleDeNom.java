@@ -18,7 +18,9 @@ public record CoupleDeNom(Nom nom1,Nom nom2) {
 	}
 	
 	
-	
+	public String toString() {
+		return "nom1:"+" "+nom1+" "+"nom2:"+" "+nom2;
+	}
 	
 	
 	

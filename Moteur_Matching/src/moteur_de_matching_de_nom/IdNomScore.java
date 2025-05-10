@@ -14,7 +14,8 @@ public class IdNomScore {
 		this.score=score;
 	}
 	public String toString() {
-		return "IdNomScore [toString()=" + super.toString() + "]";
+		return "id:"+" "+id+" "+"nom:"+" "+nom.getNomOriginal()+" "+"score:"+" "+score;
+		
 	}
 	public String getId() {
 		return this.id;

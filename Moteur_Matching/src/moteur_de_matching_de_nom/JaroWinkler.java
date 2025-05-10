@@ -56,6 +56,11 @@ public class JaroWinkler implements ComparateurChaine{
                 ((double) matchingChars / nom2.length()) +
                 ((double) (matchingChars - transpositions) / matchingChars)) / 3.0;
     }
+	
+	
+	public boolean estUneDistance() {
+		return false;
+	}
 	}
 
 

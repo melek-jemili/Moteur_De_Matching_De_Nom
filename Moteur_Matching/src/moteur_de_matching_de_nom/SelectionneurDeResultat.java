@@ -5,7 +5,7 @@ import java.util.List;
 public interface SelectionneurDeResultat {
 	 
 	
-	List<CoupleDeNomAvecScore> selectionner(List<CoupleDeNomAvecScore>L);
+	List<IdNomScore> selectionner(List<CoupleDeNomAvecScore>L);
 	
 
 }

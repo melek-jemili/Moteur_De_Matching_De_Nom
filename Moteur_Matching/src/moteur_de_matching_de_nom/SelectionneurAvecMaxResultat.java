@@ -1,4 +1,5 @@
 package moteur_de_matching_de_nom;
+import java.util.ArrayList;
 import java.util.List;
 
 public class SelectionneurAvecMaxResultat implements SelectionneurDeResultat {
@@ -9,9 +10,14 @@ public class SelectionneurAvecMaxResultat implements SelectionneurDeResultat {
 		this.maxResultat=maxResultat;
 	}
 	
-	public List<CoupleDeNomAvecScore> selectionner(List<CoupleDeNomAvecScore> List1){
+	public List<IdNomScore> selectionner(List<CoupleDeNomAvecScore> List1){
 		
-		return List1.subList(0, maxResultat);
+		List<IdNomScore> listSelectionné = new ArrayList<IdNomScore>();
+		for(CoupleDeNomAvecScore couple : List1) {
+			IdNomScore coupleFinal = new IdNomScore(couple.nom2().getId(), couple.getNom2(), couple.getScore());
+			listSelectionné.add(coupleFinal);
+		}
+		return listSelectionné.subList(0, maxResultat);
 	}
 
 }

@@ -38,4 +38,8 @@ public class Levenshtein implements ComparateurChaine {
 			return -1;
 		}
 	}	
+	
+	public boolean estUneDistance() {
+		return true;
+	}
 }

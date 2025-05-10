@@ -2,36 +2,43 @@ package moteur_de_matching_de_nom;
 
 public class Configuration {
 	
-	private Preprocesseur p;
-	private Indexeur ind;
-	private ComparateurChaine comp_ch;
+	private String nomProcesseur;
+	private String nomIndex;
+	private String nomCompchaine;
 	private double seuil;
 	private int maxResult;
 	
-	public Configuration(Preprocesseur p, Indexeur ind, ComparateurChaine comp_ch, double seuil , int maxResult) {
-		this.comp_ch=comp_ch;
-		this.ind=ind;
+	public Configuration(String nomProcesseur,String nomIndex ,String nomCompchaine, double seuil , int maxResult) {
+		this.nomProcesseur=nomProcesseur;
+		this.nomIndex=nomIndex;
 		this.maxResult=maxResult;
-		this.p=p;
+		this.nomCompchaine=nomCompchaine;
 		this.seuil=seuil;
 	}
 
-	public Preprocesseur getP() {
-		return p;
+	public String getNomProcesseur() {
+		return nomProcesseur;
 	}
 
-
-
-	public Indexeur getInd() {
-		return ind;
+	public void setNomProcesseur(String nomProcesseur) {
+		this.nomProcesseur = nomProcesseur;
 	}
 
-
-	public ComparateurChaine getComp_ch() {
-		return comp_ch;
+	public String getNomIndex() {
+		return nomIndex;
 	}
 
+	public void setNomIndex(String nomIndex) {
+		this.nomIndex = nomIndex;
+	}
 
+	public String getNomCompchaine() {
+		return nomCompchaine;
+	}
+
+	public void setNomCompchaine(String nomCompchaine) {
+		this.nomCompchaine = nomCompchaine;
+	}
 
 	public double getSeuil() {
 		return seuil;
@@ -48,6 +55,5 @@ public class Configuration {
 	public void setMaxResult(int maxResult) {
 		this.maxResult = maxResult;
 	}
-	
-	
+
 }

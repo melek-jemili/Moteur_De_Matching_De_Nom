@@ -1,9 +1,12 @@
 package moteur_de_matching_de_nom;
+import java.util.List;
 
-public class Recuperateur {
-	String chemin;
-	
-	public Recuperateur(String chemin) {
-		this.chemin=chemin;
-	}
+
+public interface  Recuperateur {
+
+	List<Nom> récupérer();
 }
+
+
+
+

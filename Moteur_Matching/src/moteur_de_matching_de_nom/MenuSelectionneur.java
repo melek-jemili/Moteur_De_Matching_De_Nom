@@ -27,6 +27,7 @@ public class MenuSelectionneur {
             case 2:
             	System.out.println("Choisir le seuil : ");
             	double seuil = scanner.nextDouble();
+
             	selectionneur = new SelectionneurParSeuil(seuil);
                 break;
                 

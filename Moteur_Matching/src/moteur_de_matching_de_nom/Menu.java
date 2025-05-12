@@ -24,29 +24,31 @@ public class Menu {
         ComparateurNom compChaine = null;
         
         //initialisation des parametres par defaut :
-        compNom = new ComparateurNomSansComparateurDeChaine();
+        
+        //compNom = new ComparateurNomSansComparateurDeChaine();
         /*EncodeurPhonétique encod = new EncodeurPhonétique();
-        List<String> liste= new ArrayList<String>();
-        liste=encod.prétraiter(liste1);
-        Levenshtein lev = new Levenshtein();
-        ComparateurNomAvecComparateurChaine comparateurNom = new ComparateurNomAvecComparateurChaine(lev);*/
+        
+        liste=encod.prétraiter(liste1);*/
+        
+        /*Levenshtein lev = new Levenshtein();
+        compChaine = new ComparateurNomAvecComparateurChaine(lev);
         
 		selector = new SelectionneurDeRésultatSansOptions();
-		genCand = new GenerateurDeCandidatSelonLaTaille();
-		List<IdNomScore> listeDeRecherche = new ArrayList<IdNomScore>();
+		genCand = new GenerateurDeCandidatSelonLaTaille();*/
+		
 		Moteur moteur = new Moteur(genCand,selector,compNom);
-        
-        
+        List<IdNomScore> listeDeRecherche = new ArrayList<IdNomScore>();
+        List<String> liste= new ArrayList<String>();
         
         do {
         	System.out.println("-------------------------------------");
             System.out.println("========== MENU ==========");
-            System.out.println("1. Effectuer une recherche");
-            System.out.println("2. Comparer deux listes");
-            System.out.println("3. Dédupliquer une liste");
-            System.out.println("4. Séléctionner les générateurs et les sélectionneurs");
-            System.out.println("5. Configurer les paramètres");
-            System.out.println("6. Quitter");
+            System.out.println("1. Configurer les paramètres");
+            System.out.println("2. Effectuer une recherche");
+            System.out.println("3. Comparer deux listes");
+            System.out.println("4. Dédupliquer une liste");
+
+            System.out.println("5. Quitter");
             System.out.println("-------------------------------------");
             System.out.print("Votre choix : ");
             
@@ -55,7 +57,7 @@ public class Menu {
 
             switch (choix) {
             
-                case 1:
+                case 2:
                 	
                     System.out.println("Saisir  le nom à rechercher:");
                     nom= scanner.nextLine();
@@ -79,7 +81,7 @@ public class Menu {
 		                      
                     break;
                     
-                case 2:
+                case 3:
                 	System.out.println("Fournir le premier fichier CSV:");
 		            String path2 = scanner.nextLine();		            
 		            System.out.println("Fournir le deuxième fichier CSV:");
@@ -98,7 +100,7 @@ public class Menu {
 		            
                     break;
                     
-                case 3:
+                case 4:
                 	System.out.println("Fournir le fichier CSV à traiter:");
 		            String path4 = scanner.nextLine();		            
 		            RécupérateurListCSV recuperateur4 = new RécupérateurListCSV(path4);
@@ -109,41 +111,21 @@ public class Menu {
 		    		    System.out.println(element.toString());
 		    		}
                     break;
-                case 4 :
-                	do{
-                		System.out.println("-------------------------------------");
-                		System.out.println("1. choisir le Sélectionneur ");
-                		System.out.println("2. choisir le Générateur  ");
-                		System.out.println("3. Retour au menu");
-                		System.out.println("-------------------------------------");
-                		System.out.print("Votre choix : ");
-                		choice = scanner.nextInt();
-                		switch(choice) {
-                			case 1:
-                				selector = MenuSelectionneur.choisirSelectionneur(scanner);                	 
-                				break;
-                			case 2 :
-                				genCand = MenuGenerateurDeCnadidat.choisirGenerateur(scanner);
-                				break;
-                			case 3 :
-                				System.out.println("Retour au menu");
-                			default : 
-                				System.out.println("choix invalide");
-                		}
-                	moteur = new Moteur(genCand,selector,compNom);
-                	System.out.println("Moteur mis à jour avec les nouveaux paramètres.");
-                	}while(choice !=3);
+                case 5 :
+                	
                 	break;
-                case 5:
+                case 1:
                 	do {
                 	System.out.println("-------------------------------------");
                 	System.out.println("======= Choisir votre configuration ======");              	
                 	System.out.println("1. choisir le prétraitement "); 
                 	System.out.println("2. choisir une structure d'index ");
                 	System.out.println("3. choisir une mesure de comparaison ");
-                	System.out.println("4. Définir un max de résultat ");
+                    System.out.println("4. Définir un max de résultat ");
                 	System.out.println("5. Définir un seuil ");
                 	System.out.println("6. Retour au menu");
+                	System.out.println("7.Choisir les selectionneurs et les generateurs");
+
                 	System.out.println("-------------------------------------");
                 	System.out.print("Votre choix : ");
                 	choice = scanner.nextInt();
@@ -166,6 +148,32 @@ public class Menu {
                     		System.out.print("Entrer le seuil  : ");
                     		 seuil= scanner.nextDouble();
                     		break;
+                    	case 7:
+                    		do{
+                        		System.out.println("-------------------------------------");
+                        		System.out.println("1. choisir le Sélectionneur ");
+                        		System.out.println("2. choisir le Générateur  ");
+                        		System.out.println("3. Retour au menu");
+                        		System.out.println("-------------------------------------");
+                        		System.out.print("Votre choix : ");
+                        		choice = scanner.nextInt();
+                        		switch(choice) {
+                        			case 1:
+                        				selector = MenuSelectionneur.choisirSelectionneur(scanner);                	 
+                        				break;
+                        			case 2 :
+                        				genCand = MenuGenerateurDeCnadidat.choisirGenerateur(scanner);
+                        				break;
+                        			case 3 :
+                        				System.out.println("Retour au menu");
+                        			default : 
+                        				System.out.println("choix invalide");
+                        		}
+                        	moteur = new Moteur(genCand,selector,compNom);
+                        	System.out.println("Moteur mis à jour avec les nouveaux paramètres.");
+                        	}while(choice !=3);
+                    		break ;
+                    		
                     	case 6:
                     		System.out.println("Retour au menu");
                     		break;

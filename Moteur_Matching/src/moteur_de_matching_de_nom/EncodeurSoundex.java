@@ -5,13 +5,11 @@ import java.util.ArrayList;
 
 public class EncodeurSoundex extends Encodeur{
 
-	public List<String> prétraiter(List<String> L) {
+	public List<String> prétraiter(Nom nom) {
 		
 		List<String> listePretraitee = new ArrayList<String>();
-				
-				for (String chaine : L) {
-					listePretraitee.add(encoder(chaine));
-				}
+		String nomEncodé=encoder(nom.getNomOriginal());
+		listePretraitee.add(nomEncodé);
 		return listePretraitee;
 }
 		

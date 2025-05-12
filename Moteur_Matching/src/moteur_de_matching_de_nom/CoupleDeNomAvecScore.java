@@ -25,7 +25,7 @@ public record  CoupleDeNomAvecScore(Nom nom1 , Nom nom2 , double score){
 	
 	
 	public String toString() {
-		return "nom:"+" "+nom2.getNomOriginal()+" "+"score:"+" "+score;
+		return "nom1:"+" "+nom1.getNomOriginal()+" "+"nom2:"+" "+nom2.getNomOriginal()+" "+"score:"+" "+score;
 	}
 	
 

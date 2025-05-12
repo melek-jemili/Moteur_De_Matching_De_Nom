@@ -6,16 +6,10 @@ import java.util.HashMap;
 
 
 public class IndexDictionnaire implements Indexeur{
-		
-		private Map<Integer, String> mapSelonLaTaille;
-		
-		public 	IndexDictionnaire(Map<Integer, String> mapSelonLaTaille) {
-			this.mapSelonLaTaille= new HashMap<>();
-		}
-	
+
 		public void indexer(List<String> noms) {
 			        
-			        
+			Map<Integer, String> mapSelonLaTaille= new HashMap<>();
 			        for (String nom : noms) {
 			            mapSelonLaTaille.put(nom.length(), nom);
 			        }}

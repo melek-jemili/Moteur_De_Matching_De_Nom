@@ -2,58 +2,48 @@ package moteur_de_matching_de_nom;
 
 public class Configuration {
 	
-	private String nomProcesseur;
-	private String nomIndex;
-	private String nomCompchaine;
+	private Preprocesseur nomProcesseur;
+	private Indexeur nomIndex;
+	private ComparateurNom nomComp;
 	private double seuil;
 	private int maxResult;
-	
-	public Configuration(String nomProcesseur,String nomIndex ,String nomCompchaine, double seuil , int maxResult) {
-		this.nomProcesseur=nomProcesseur;
-		this.nomIndex=nomIndex;
-		this.maxResult=maxResult;
-		this.nomCompchaine=nomCompchaine;
-		this.seuil=seuil;
+	public Configuration(Preprocesseur nomProcesseur, Indexeur nomIndex, ComparateurNom nomComp, double seuil, int maxResult) {
+		super();
+		this.nomProcesseur = nomProcesseur;
+		this.nomIndex = nomIndex;
+		this.nomComp = nomComp;
+		this.seuil = seuil;
+		this.maxResult = maxResult;
 	}
-
-	public String getNomProcesseur() {
+	public Preprocesseur getNomProcesseur() {
 		return nomProcesseur;
 	}
-
-	public void setNomProcesseur(String nomProcesseur) {
+	public void setNomProcesseur(Preprocesseur nomProcesseur) {
 		this.nomProcesseur = nomProcesseur;
 	}
-
-	public String getNomIndex() {
+	public Indexeur getNomIndex() {
 		return nomIndex;
 	}
-
-	public void setNomIndex(String nomIndex) {
+	public void setNomIndex(Indexeur nomIndex) {
 		this.nomIndex = nomIndex;
 	}
-
-	public String getNomCompchaine() {
-		return nomCompchaine;
+	public ComparateurNom getNomCompchaine() {
+		return nomComp;
 	}
-
-	public void setNomCompchaine(String nomCompchaine) {
-		this.nomCompchaine = nomCompchaine;
+	public void setNomCompchaine(ComparateurNom nomComp) {
+		this.nomComp = nomComp;;
 	}
-
 	public double getSeuil() {
 		return seuil;
 	}
-
 	public void setSeuil(double seuil) {
 		this.seuil = seuil;
 	}
-
 	public int getMaxResult() {
 		return maxResult;
 	}
-
 	public void setMaxResult(int maxResult) {
 		this.maxResult = maxResult;
 	}
-
+	
 }

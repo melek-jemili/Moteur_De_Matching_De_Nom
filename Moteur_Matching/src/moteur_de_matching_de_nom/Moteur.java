@@ -10,7 +10,7 @@ public class Moteur {
 	private GenerateurDeCandidat genCond;
 	private SelectionneurDeResultat selectRes;
 	private ComparateurNom compNom;
-	private RécupérateurListCSV fich;
+	//private RécupérateurListCSV fich;
 	private Configuration config;
 
 	
@@ -39,6 +39,12 @@ public class Moteur {
 		List <IdNomScore> candidatSéléctionner  = new ArrayList<IdNomScore>();
 		List <CoupleDeNomAvecScore> candidatComparé = new ArrayList<CoupleDeNomAvecScore>();
 		candidat = this.genCond.genererUnCandidat(ListDeNom,l);
+		for(CoupleDeNom couple : candidat) {
+			Nom nom1 = couple.getNom1();
+			Nom nom2 = couple.getNom2();
+			nom1.setListDeNomPretraite(this.config.getNomProcesseur().prétraiter(nom1));
+			nom2.setListDeNomPretraite(this.config.getNomProcesseur().prétraiter(nom2));
+		}
 		for (CoupleDeNom couple : candidat) {
 			double score=compNom.comparerNom(couple.getNom1(), couple.getNom2());
 			CoupleDeNomAvecScore coupleEtScore = new CoupleDeNomAvecScore(couple.getNom1(),couple.getNom2(), score);
@@ -55,10 +61,10 @@ public class Moteur {
 		    Set<Nom> doublons = new HashSet<>();
 
 		    for (Nom nom : l) {
-		        String normalisée = nom.getNomOriginal().trim().toLowerCase();
-
-		        // Si la valeur normalisée est déjà présente => doublon
-		        if (!valeurs.add(normalisée)) {
+		        //String normalisée = nom.getNomOriginal().trim().toLowerCase();
+		        nom.setListDeNomPretraite(this.config.getNomProcesseur().prétraiter(nom));
+		        // Si la valeur normalisée est déjà présente on l'insère dans doublon
+		        if (!valeurs.add(nom.getNomOriginal())) {
 		            doublons.add(nom);
 		        }
 		    }
@@ -75,6 +81,12 @@ public class Moteur {
 		
 		List <CoupleDeNomAvecScore> candidatComparé = new ArrayList<CoupleDeNomAvecScore>();
 		candidat = this.genCond.genererUnCandidat(l1,l2);
+		for(CoupleDeNom couple : candidat) {
+			Nom nom1 = couple.getNom1();
+			Nom nom2 = couple.getNom2();
+			nom1.setListDeNomPretraite(this.config.getNomProcesseur().prétraiter(nom1));
+			nom2.setListDeNomPretraite(this.config.getNomProcesseur().prétraiter(nom2));
+		}
 		for (CoupleDeNom couple : candidat) {
 			double score=compNom.comparerNom(couple.getNom1(), couple.getNom2());
 			CoupleDeNomAvecScore coupleEtScore = new CoupleDeNomAvecScore(couple.getNom1(),couple.getNom2(), score);

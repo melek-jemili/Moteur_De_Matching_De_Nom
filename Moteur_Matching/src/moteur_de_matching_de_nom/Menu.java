@@ -38,7 +38,7 @@ public class Menu {
 		
 		Moteur moteur = new Moteur(genCand,selector,compNom);
         List<IdNomScore> listeDeRecherche = new ArrayList<IdNomScore>();
-        List<String> liste= new ArrayList<String>();
+        
         
         do {
         	System.out.println("-------------------------------------");
@@ -66,10 +66,7 @@ public class Menu {
 		            path1 = scanner.nextLine();		            
 		            List<Nom> liste1 = new ArrayList<Nom>();		            
 		            Nom nomAChercher = new Nom("0", nom);
-		            List<String>list=preprocesseur.prétraiter(nomAChercher);
-		            Normaliseur norm = new Normaliseur();
-		            list=norm.prétraiter(nomAChercher);
-		            nomAChercher.setListDeNomPretraite(list);
+		            
 		            RécupérateurListCSV recuperateur1 = new RécupérateurListCSV(path1);
 		            liste1=recuperateur1.récupérer();
 		            System.out.println("Nombre d'éléments dans liste1: " + liste1.size());
@@ -78,6 +75,9 @@ public class Menu {
 					for (IdNomScore element : listeDeRecherche) {
 					    System.out.println(element.toString());
 					}
+					long start = 0;
+					System.out.println("Durée : " + (System.nanoTime() - start) / 1_000_000.0 + " ms");
+
 		                      
                     break;
                     
@@ -97,7 +97,10 @@ public class Menu {
 		    		for (CoupleDeNomAvecScore element : listeDeComparaison) {
 		    		    System.out.println(element.toString());
 		    		}
-		            
+		    		long start2=System.nanoTime();
+		    		System.out.println("Durée : " + (System.nanoTime() - start2) / 1_000_000.0 + " ms");
+		    		
+		    		
                     break;
                     
                 case 4:
@@ -110,6 +113,10 @@ public class Menu {
 		    		for (Nom element : listeDédupliquée) {
 		    		    System.out.println(element.toString());
 		    		}
+		    		long start3=System.nanoTime();
+		    		System.out.println("Durée : " + (System.nanoTime() - start3) / 1_000_000.0 + " ms");
+		    		
+		    		
                     break;
                 case 5 :
                 	

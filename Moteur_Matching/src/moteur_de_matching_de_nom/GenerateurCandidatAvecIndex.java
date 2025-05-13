@@ -15,17 +15,42 @@ public class GenerateurCandidatAvecIndex implements GenerateurDeCandidat{
 	}
 	
 	public List <CoupleDeNom> genererUnCandidat(List <Nom> list1 ,List<Nom> list2){
-		List<Nom> liste = new ArrayList<Nom>();
-		List<String> listeDeNomOriginal = new ArrayList<String>();
-		Map<Integer, String> map = new HashMap<Integer, String>();
-		liste.addAll(list1);
-		liste.addAll(list2);
-		
-		for(Nom nom : liste) {
-			listeDeNomOriginal.add(nom.getNomOriginal());
-		}
-		this.index.indexer(listeDeNomOriginal);
-		
-	}
+		   List<CoupleDeNom> couples = new ArrayList<>();
+
+		    // 1. On récupère tous les noms originaux dans une liste commune
+		    List<String> nomsOriginaux = new ArrayList<>();
+		    Map<String, Nom> map = new HashMap<>();
+
+		    for (Nom nom : list1) {
+		        nomsOriginaux.add(nom.getNomOriginal());
+		        map.put(nom.getNomOriginal(), nom);
+		    }
+		    for (Nom nom : list2) {
+		        nomsOriginaux.add(nom.getNomOriginal());
+		        map.put(nom.getNomOriginal(), nom);
+		    }
+
+		    // 2. On indexe tous les noms
+		    index.indexer(nomsOriginaux);
+
+		    // 3. On suppose que l'indexeur peut retourner la map des groupes
+		    Map<Integer, List<String>> mapParTaille = ((IndexDictionnaire) index).getMapSelonLaTaille();
+
+		    // 4. Pour chaque groupe de taille, on génère des couples (L1 x L2)
+		    for (Map.Entry<Integer, List<String>> entry : mapParTaille.entrySet()) {
+		        List<String> noms = entry.getValue();
+
+		        for (String nom1 : noms) {
+		            for (String nom2 : noms) {
+		                    Nom obj1 = map.get(nom1);
+		                    Nom obj2 = map.get(nom2);
+		                    if (list1.contains(obj1) && list2.contains(obj2)) {
+		                        couples.add(new CoupleDeNom(obj1, obj2));
+		                    }		                
+		            }
+		        }
+		    }
+
+		    return couples;	}
 
 }

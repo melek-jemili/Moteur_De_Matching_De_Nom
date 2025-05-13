@@ -17,7 +17,13 @@ public class SelectionneurAvecMaxResultat implements SelectionneurDeResultat {
 			IdNomScore coupleFinal = new IdNomScore(couple.nom2().getId(), couple.getNom2(), couple.getScore());
 			listSelectionné.add(coupleFinal);
 		}
-		return listSelectionné.subList(0, maxResultat);
+		
+		int actualSize=Math.min(maxResultat, listSelectionné.size());
+		if(actualSize>maxResultat) {
+			return listSelectionné.subList(0, maxResultat);}
+		else {
+			return listSelectionné.subList(0, actualSize);
+		}
 	}
 
 }
